@@ -1,0 +1,23 @@
+{
+	"env": {
+		"browser": false,
+		"commonjs": true,
+		"es2021": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"prettier"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": "latest"
+	},
+	"plugins": ["@typescript-eslint", "prettier"],
+	"rules": {
+		"linebreak-style": ["error", "windows"],
+		"quotes": ["error", "double", { "allowTemplateLiterals": true }],
+		"semi": ["error", "always"],
+		"comma-dangle": ["error", "always-multiline"]
+	}
+}
