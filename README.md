@@ -2,19 +2,13 @@
 
 is a project i made mainly for my personal practice and for FWD Udacity Advanced Full-Stack Web Development
 
-
-
 ## Introduction to the project
 
 It is an API that process on stored photos to rescale them.
 
-
-
 ## How to use
 
 use the command 'npm install' to install the dependencies
-
-
 
 ### scripts
 
@@ -28,8 +22,6 @@ use the command 'npm install' to install the dependencies
 
 "format": runs prettier to format
 
-
-
 ### endpoints
 
 /image
@@ -42,9 +34,7 @@ accepts query parameters
 
 "height": the height of the rescaled image in pixels
 
+#### examples:
 
-
-#### examples: 
-
-- /images/?filename=fjord
-- /images/images/?filename=fjord&width=300&height=200
+- /image/?filename=fjord
+- /image/image/?filename=fjord&width=300&height=200
