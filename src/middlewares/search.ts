@@ -8,7 +8,7 @@ export const searchForImage = (
 	req: Request,
 	res: Response,
 	next: NextFunction,
-) => {
+): Response | void => {
 	const fullSizedImages = join(__dirname, "../../assets/full");
 	const thumbs = join(__dirname, "../../assets/thumb");
 

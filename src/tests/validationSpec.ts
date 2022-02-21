@@ -3,19 +3,19 @@ import app from "../app";
 
 const request = supertest(app);
 
-describe("Test the endpoint /image", () => {
-	it("test the endpoint response when specifing a non existing image", async () => {
+describe("Test the endpoint /image", (): void => {
+	it("test the endpoint response when specifing a non existing image", async (): Promise<void> => {
 		const response = await request.get("/image/?filename=NotAnImage");
 		expect(response.status).toBe(404);
 		expect(response.text).toBe("image not found");
 	});
 
-	it("test the endpoint response when specifing an existing image", async () => {
+	it("test the endpoint response when specifing an existing image", async (): Promise<void> => {
 		const response = await request.get("/image/?filename=fjord");
 		expect(response.status).toBe(200);
 	});
 
-	it("test the endpoint response when specifing width without height", async () => {
+	it("test the endpoint response when specifing width without height", async (): Promise<void> => {
 		const response = await request.get("/image/?filename=fjord&width=300");
 		expect(response.status).toBe(400);
 		expect(response.text).toBe(
@@ -23,7 +23,7 @@ describe("Test the endpoint /image", () => {
 		);
 	});
 
-	it("test the endpoint response when specifing height without width", async () => {
+	it("test the endpoint response when specifing height without width", async (): Promise<void> => {
 		const response = await request.get("/image/?filename=fjord&height=200");
 		expect(response.status).toBe(400);
 		expect(response.text).toBe(
@@ -31,14 +31,14 @@ describe("Test the endpoint /image", () => {
 		);
 	});
 
-	it("test the endpoint response when specifing width and height", async () => {
+	it("test the endpoint response when specifing width and height", async (): Promise<void> => {
 		const response = await request.get(
 			"/image/?filename=fjord&width=300&height=200",
 		);
 		expect(response.status).toBe(200);
 	});
 
-	it("test the endpoint response when specifing an invalid height", async () => {
+	it("test the endpoint response when specifing an invalid height", async (): Promise<void> => {
 		const response = await request.get(
 			"/image/?filename=fjord&width=300&height=ffff",
 		);
@@ -46,7 +46,7 @@ describe("Test the endpoint /image", () => {
 		expect(response.text).toBe("height value must be a number");
 	});
 
-	it("test the endpoint response when specifing an invalid width", async () => {
+	it("test the endpoint response when specifing an invalid width", async (): Promise<void> => {
 		const response = await request.get(
 			"/image/?filename=fjord&width=ffff&height=200",
 		);
@@ -54,7 +54,7 @@ describe("Test the endpoint /image", () => {
 		expect(response.text).toBe("width value must be a number");
 	});
 
-	it("test the endpoint response when specifing a negative height", async () => {
+	it("test the endpoint response when specifing a negative height", async (): Promise<void> => {
 		const response = await request.get(
 			"/image/?filename=fjord&width=-100&height=200",
 		);
@@ -62,7 +62,7 @@ describe("Test the endpoint /image", () => {
 		expect(response.text).toBe("width value must be a positive number");
 	});
 
-	it("test the endpoint response when specifing a negative width", async () => {
+	it("test the endpoint response when specifing a negative width", async (): Promise<void> => {
 		const response = await request.get(
 			"/image/?filename=fjord&width=300&height=-200",
 		);

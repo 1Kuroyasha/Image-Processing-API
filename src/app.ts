@@ -11,6 +11,6 @@ app.use(morgan("short"));
 
 app.use("/", router);
 
-app.listen(PORT, () => console.log(`server listening on port ${PORT}`));
+app.listen(PORT, (): void => console.log(`server listening on port ${PORT}`));
 
 export default app;

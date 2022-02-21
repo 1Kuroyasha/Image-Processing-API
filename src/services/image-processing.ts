@@ -3,7 +3,10 @@ import { join } from "path";
 import { Request, Response } from "express";
 import sharp from "sharp";
 
-export const resizeImage = async (req: Request, res: Response) => {
+export const resizeImage = async (
+	req: Request,
+	res: Response,
+): Promise<void> => {
 	const { filename, width, height } = req.query;
 
 	const thumbDir = join(__dirname, "../../assets/thumb");
@@ -12,5 +15,5 @@ export const resizeImage = async (req: Request, res: Response) => {
 	sharp(res.locals.fullImage)
 		.resize(Number(width), Number(height))
 		.toFormat("jpeg")
-		.toFile(resizedImage, () => res.sendFile(resizedImage as string));
+		.toFile(resizedImage, (): void => res.sendFile(resizedImage as string));
 };

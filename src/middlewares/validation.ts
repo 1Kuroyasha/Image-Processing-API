@@ -4,7 +4,7 @@ export const validateQueryParameters = (
 	req: Request,
 	res: Response,
 	next: NextFunction,
-) => {
+): Response | void => {
 	const { filename, width, height } = req.query;
 
 	if (!filename) return res.status(400).send("filename parameter is essential");
