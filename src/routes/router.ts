@@ -7,5 +7,5 @@ export const router = Router();
 router.use("/image", imageRouter);
 
 router.get("*", (req, res) => {
-	return res.sendStatus(404);
+	return res.sendStatus(400);
 });

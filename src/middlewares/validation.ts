@@ -16,5 +16,17 @@ export const validateQueryParameters = (
 			.status(400)
 			.send("parameters width and height should be used together");
 
+	if (isNaN(+width))
+		return res.status(400).send("width value must be a number");
+
+	if (isNaN(+height))
+		return res.status(400).send("height value must be a number");
+
+	if (+width <= 0)
+		return res.status(400).send("width value must be a positive number");
+
+	if (+height <= 0)
+		return res.status(400).send("height value must be a positive number");
+
 	next();
 };
